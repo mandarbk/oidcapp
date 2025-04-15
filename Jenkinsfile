@@ -25,7 +25,7 @@ pipeline {
         steps{
             sh "echo $KUBECONFIG"
             sh "kubectl config view"
-            sh "kubectl get pods --kubeconfig=/var/lib/jenkins-casc/.kube/config"
+            sh "kubectl -v 10 get pods --kubeconfig=/var/lib/jenkins-casc/.kube/config"
         }
     }
 
