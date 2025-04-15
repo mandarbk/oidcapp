@@ -21,10 +21,18 @@ pipeline {
         }
     }
 
+    stage("k8"){
+        steps{
+            sh "kubectl get pods"
+        }
+    }
+
     stage ('Build Maven') {
       steps {
         sh 'mvn clean -DskipTests install'
       }
     }
+
+
   }
 }
