@@ -23,6 +23,7 @@ pipeline {
 
     stage("k8"){
         steps{
+            sh "kubectl config view"
             sh "kubectl get pods"
         }
     }
