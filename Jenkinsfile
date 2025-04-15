@@ -6,7 +6,7 @@ pipeline {
     pollSCM 'H/10 * * * *'
   }
   
-  tools {
+  tools { 
     maven 'maven-3' 
   }
   
