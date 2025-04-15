@@ -16,9 +16,8 @@ pipeline {
         steps {
             git branch: 'authorization-server',
                 credentialsId: 'github-credentials',
-                url: 'git@github.com:mandarbk/oidcapp.git'
+                url: 'https://github.com/mandarbk/oidcapp.git'
 
-            sh "ls -lat"
         }
     }
 
