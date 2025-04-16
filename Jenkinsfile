@@ -21,6 +21,12 @@ pipeline {
         }
     }
 
+    stage ('Build Maven') {
+      steps {
+        sh 'mvn clean -DskipTests install'
+      }
+    }
+
     stage("k8"){
         steps{
             withKubeConfig(caCertificate: '', clusterName: 'jenkins-k8s', contextName: 'k8s', credentialsId: 'jenkins-token', namespace: 'default', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:34931') {
@@ -32,11 +38,7 @@ pipeline {
         }
     }
 
-    stage ('Build Maven') {
-      steps {
-        sh 'mvn clean -DskipTests install'
-      }
-    }
+   
 
 
   }
