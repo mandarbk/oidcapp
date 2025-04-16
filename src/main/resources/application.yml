@@ -7,7 +7,7 @@ spring:
         opaquetoken:
           client-id: api_server
           client-secret: api_server_secret
-          introspection-uri: http://127.0.0.1:9080/oauth2/introspect
+          introspection-uri: http://authorization-server/oauth2/introspect
 
 logging:
   level:
