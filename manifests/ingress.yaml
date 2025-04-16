@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: httpserver-ingress
-  namespace: apisix-demo
+  namespace: oidcapp
   annotations:
     k8s.apisix.apache.org/plugin-config-name: cors-plugin
 spec:
