@@ -24,7 +24,7 @@ public class HomeController {
         OAuth2AuthenticationToken authentication = (OAuth2AuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         ResponseSpec response = restClient
             .get()
-            .uri("http://127.0.0.1:8080/api/secured/foo")
+            .uri("http://api-server/api/secured/foo")
             .attributes(clientRegistrationId(authentication.getAuthorizedClientRegistrationId()))
             .retrieve();
         String responseMessage = response.body(String.class);

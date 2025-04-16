@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8080
 spring:
   application:
     name: ClientApplication
@@ -13,13 +13,13 @@ spring:
             client-secret: secret
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_basic
-            redirect-uri: http://authclientapp:8091/login/oauth2/code/{registrationId}
+            redirect-uri: http://client-application/login/oauth2/code/{registrationId}
             scope: write,openid
         provider:
           spring:
-            authorization-uri: http://127.0.0.1:9080/oauth2/authorize
-            token-uri: http://127.0.0.1:9080/oauth2/token
-            jwk-set-uri: http://127.0.0.1:9080/oauth2/jwks
+            authorization-uri: http://authorization-server/oauth2/authorize
+            token-uri: http://authorization-server/oauth2/token
+            jwk-set-uri: http://authorization-server/oauth2/jwks
 
 logging:
   level:
