@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: oidcapp
+spec: {}
+status: {}
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: client-app
+  name: client-app
+  namespace: oidcapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: client-app
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: client-app
+    spec:
+      containers:
+      - image: mandarkul/oidcapp-client-application:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
+        name: oidcapp-client-app
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: client-app
+  name: client-app
+  namespace: oidcapp
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: client-app
+  type: ClusterIP
+
+
+

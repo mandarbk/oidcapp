@@ -1,0 +1,26 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: ClientApplication
+  security:
+    oauth2:
+      client:
+        registration:
+          oidcappclient:
+            provider: spring
+            client-id: admin_client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            client-authentication-method: client_secret_basic
+            redirect-uri: http://authclientapp:8091/login/oauth2/code/{registrationId}
+            scope: write,openid
+        provider:
+          spring:
+            authorization-uri: http://127.0.0.1:9080/oauth2/authorize
+            token-uri: http://127.0.0.1:9080/oauth2/token
+            jwk-set-uri: http://127.0.0.1:9080/oauth2/jwks
+
+logging:
+  level:
+    org.springframework.security: TRACE
