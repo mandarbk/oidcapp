@@ -29,6 +29,7 @@ spec:
     spec:
       containers:
       - image: mandarkul/oidcapp-auth-server:0.0.1-SNAPSHOT
+        imagePullPolicy: Always
         name: oidcapp-auth-server
 
 ---

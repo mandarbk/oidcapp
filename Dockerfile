@@ -7,12 +7,15 @@ ARG JAR_FILE=target/*.jar
 # Copy the jar file to the working directory and rename it to application.jar
 COPY ${JAR_FILE} application.jar
 # Extract the jar file using an efficient layout
-RUN java -Djarmode=tools -jar application.jar extract --layers --destination extracted
+# RUN java -Djarmode=tools -jar application.jar extract --layers --destination extracted
+RUN java -Djarmode=tools -jar application.jar extract --layers --launcher --destination extracted
 
 # This is the runtime container
-FROM openjdk:21-jdk
+FROM ubuntu/jre:21-24.04_edge
 
 WORKDIR /application
+ENTRYPOINT ["java", "org.springframework.boot.loader.launch.JarLauncher"]
+
 # Copy the extracted jar contents from the builder container into the working directory in the runtime container
 # Every copy step creates a new docker layer
 # This allows docker to only pull the changes it really needs
@@ -24,7 +27,3 @@ COPY --from=builder /builder/extracted/application/ ./
 # This jar only contains application code and references to the extracted jar files
 # This layout is efficient to start up and CDS friendly
 # ENTRYPOINT ["java", "-jar", "application.jar"]
-
-ENTRYPOINT ["java", "org.springframework.boot.loader.JarLauncher"]
-
-EXPOSE 8080
