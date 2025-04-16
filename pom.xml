@@ -64,41 +64,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- <plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<configuration>
-				<verbose>true</verbose>
-				<images>
-					<image>
-						<name>mandarkul/oidc-app-api-server</name>
-					</image>
-				</images>
-				<images>
-						<image>
-							<name>docker.io/mandarkul/oidc-app-api-server</name>
-							<build>
-								<dockerFileDir>${project.basedir}</dockerFileDir>
-								<filter>@</filter>
-								<tags>
-									<tag>${project.version}</tag>
-								</tags>
-							</build>
-						</image>
-					</images> 
-			</configuration>
-				<executions>
-				<execution>
-					<id>buildImage</id>
-					<phase>package</phase>
-					<goals>
-						<goal>build</goal>
-						<goal>push</goal>
-					</goals>
-				</execution>
-			</executions>
-			</plugin>
-			-->
+			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
