@@ -66,7 +66,7 @@
 					<verbose>true</verbose>
 					<images>
 						<image>
-							<name>docker.io/mandarkul/oidc-app-api-server</name>
+							<name>mandarkul/oidc-app-api-server</name>
 						</image>
 					</images>
 					<!-- <images>
@@ -84,8 +84,8 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>default</id>
-						<phase>install</phase>
+						<id>buildImage</id>
+						<phase>package</phase>
 						<goals>
 							<goal>build</goal>
 							<goal>push</goal>
