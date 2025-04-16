@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpserver-ingress
+  namespace: apisix-demo
+  annotations:
+    k8s.apisix.apache.org/plugin-config-name: cors-plugin
+spec:
+  # we use APISIX Ingress and it watches Ingress resources with "apisix" ingressClassName
+  ingressClassName: apisix
+  rules:
+  - host: authclient.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: client-app
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
