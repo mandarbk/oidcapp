@@ -30,7 +30,7 @@ pipeline {
 
     stage("k8"){
         steps{
-            withKubeConfig(caCertificate: '', clusterName: 'jenkins-k8s', contextName: 'k8s', credentialsId: 'jenkins-token', namespace: 'default', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:34931') {
+            withKubeConfig(caCertificate: '', clusterName: 'jenkins-k8s', contextName: 'k8s', credentialsId: 'jenkins-k8s-token', namespace: 'default', restrictKubeConfigAccess: false, serverUrl: 'https://127.0.0.1:34931') {
                 sh "kubectl get ns"
         }
             // sh "echo $KUBECONFIG"
