@@ -32,6 +32,9 @@
 		<dockerhub.user>mandarkul</dockerhub.user>
 		<docker.app.name>oidcapp-auth-server</docker.app.name>
 		<docker.app.tag>${project.version}</docker.app.tag>
+		<docker.user>mandarkul</docker.user>
+		<docker.password>mandar@Kul</docker.password>
+		<docker.url>docker.io</docker.url>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -159,11 +162,11 @@
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
 								<argument>login</argument>
-								<!-- <argument>-u</argument>
+								<argument>-u</argument>
 								<argument>${docker.user}</argument>
 								<argument>-p</argument>
 								<argument>${docker.password}</argument>
-								<argument>${docker.url}</argument> -->
+								<argument>${docker.url}</argument>
 							</arguments>
 						</configuration>
 					</execution>
