@@ -28,7 +28,7 @@ spec:
         app: authorization-server
     spec:
       containers:
-      - image: oidcapp-auth-server:0.0.1-SNAPSHOT
+      - image: mandarkul/oidcapp-auth-server:0.0.1-SNAPSHOT
         name: oidcapp-auth-server
 
 ---

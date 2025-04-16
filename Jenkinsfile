@@ -23,7 +23,6 @@ pipeline {
 
       stage ('Build Maven') {
         steps {
-          sh 'docker login'
           sh 'mvn clean -DskipTests install'
         }
       }
