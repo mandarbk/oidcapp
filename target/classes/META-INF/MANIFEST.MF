@@ -1,2 +1,0 @@
-Main-Class: org.springframework.boot.loader.launch.JarLauncher
-Start-Class: com.oidcapp.client.ClientApplication

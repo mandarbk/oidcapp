@@ -1,5 +1,0 @@
-com/oidcapp/client/ClientApplication.class
-com/oidcapp/client/ClientLoggerRequestInterceptor$BufferingClientHttpResponseWrapper.class
-com/oidcapp/client/HomeController.class
-com/oidcapp/client/ClientLoggerRequestInterceptor.class
-com/oidcapp/client/SecurityConfig.class
