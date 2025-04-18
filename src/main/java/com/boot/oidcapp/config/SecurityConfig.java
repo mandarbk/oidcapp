@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.server.authorization.config.annotation.web.configurers.OAuth2AuthorizationServerConfigurer;
@@ -47,7 +46,6 @@ public class SecurityConfig {
     SecurityFilterChain defaultSecurityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/admin").hasRole("ADMIN")
                         .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
@@ -58,7 +56,9 @@ public class SecurityConfig {
     UserDetailsService userDetailsService() {
         var josh = User.withUsername("josh")
                 .passwordEncoder(t -> passwordEncoder().encode(t))
-                .password("pw").roles("USER").build();
+                .password("pw")
+                .authorities("write")
+                .roles("USER").build();
         var rob = User.withUsername("rob")
                 .passwordEncoder(t -> passwordEncoder().encode(t))
                 .password("pw").roles("USER", "ADMIN").build();

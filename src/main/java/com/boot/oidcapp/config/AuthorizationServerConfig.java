@@ -48,7 +48,7 @@ public class AuthorizationServerConfig {
                         ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
-                .redirectUri("http://client-application/login/oauth2/code/oidcappclient")
+                .redirectUri("http://authclient.com:9080/login/oauth2/code/oidcappclient")
                 .scope("write")
                 .scope(OidcScopes.OPENID)
                 .clientSettings(ClientSettings.builder().requireAuthorizationConsent(true).build())
